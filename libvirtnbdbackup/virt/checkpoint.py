@@ -352,6 +352,7 @@ def create(
         )
 
     if args.level == "diff":
+        parentCheckpoint = checkpoints[0] #for take ONLY full backup
         log.info("Diff backup: saving delta since checkpoint: [%s].", parentCheckpoint)
 
     if args.level in ("full", "inc"):

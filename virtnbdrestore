@@ -214,6 +214,7 @@ def main() -> None:
             sys.exit(1)
     else:
         dataFiles = lib.getLatest(args.input, "*.data")
+        dataFiles = [f for f in dataFiles if '.diff.' not in os.path.basename(f)]  #SKIP take diff for restoring by util
         if not dataFiles:
             logging.error("No data files found in directory: [%s]", args.input)
             sys.exit(1)
